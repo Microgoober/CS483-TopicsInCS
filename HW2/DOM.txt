@@ -1,0 +1,45 @@
+Document
+\-- html (lang="en")
+    |-- head
+    |   |--- meta (charset="UTF-8")
+    |   |--- meta (name="viewport")
+    |   |--- meta (name="description")
+    |   \--- title
+    |
+    \-- body
+        |-- header
+        |   \-- h1
+        |
+        |-- nav
+        |   \-- ul
+        |       |-- li
+        |       |   \-- a (href="index.html")
+        |       |
+        |       |-- li
+        |       |   \-- a (href="about.html")
+        |       |
+        |       \-- li
+        |           \-- a (href="contact.html")
+        |
+        |-- main
+        |   \-- section
+        |       |-- h2
+        |       \-- form (action="#", method="post")
+        |           |-- div
+        |           |   |-- label (for="name")
+        |           |   \-- input (type="text", id="name", required)
+        |           |
+        |           |-- div
+        |           |   |-- label (for="email")
+        |           |   \-- input (type="email", id="email", required)
+        |           |
+        |           |-- div
+        |           |   |-- label (for="message")
+        |           |   \-- textarea (id="message", required)
+        |           |
+        |           \-- div
+        |               \-- button (type="submit")
+        |
+        \-- footer
+            \-- p
+                \-- a (href="mailto:happypaws@example.com")
