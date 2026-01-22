@@ -1,0 +1,72 @@
+/* Top Page Welcome */
+h1 {   
+        font: 1em sans-serif;
+        font-size: 32px;
+        color: rgb(177, 4, 111);
+        font-weight: bold;
+}
+
+/* List Style Type */
+nav > ul {
+    list-style-type: none;
+}
+
+/* Grouped Selectors - Part 1 */
+/* All h2 Sections Blue */
+main > section > h2 {
+    font: 1em sans-serif;
+    font-size: 24px;
+    color: blue;
+    font-weight: bold;
+}
+
+/* Parent-Child Selectors - Part 2 */
+/* Add Margins and gray */
+main > section:first-child {
+    font: 1em sans-serif;
+    background-color: rgb(221, 217, 217);
+    padding: 12px;
+    margin: 32px;
+}
+
+/* Add color to parigraph */
+main > section:first-child > p {
+    color: rgb(186, 69, 226);
+}
+
+/* When Hover Manke Bold */
+/* Pseudo-Class Selectors - Part 3 */
+ul>li:hover {
+    font-weight: bold;
+}
+
+/* Attribute Selectors - Part 4*/
+/* Getting Links To Have Color */
+a[href^="http"] {
+    color: green;
+}
+
+a[href^="mailto"] {
+    color: red;
+}
+
+a[href^="tel"] {
+    color: blue;
+}
+
+/* Make Footer Black */
+footer {
+    font: 1em sans-serif;
+    color: white;
+    text-align: center;
+    background-color: black;
+    padding: 12px;
+    font: 1em sans-serif;
+    font-size: 12px;
+}
+
+
+
+
+
+
