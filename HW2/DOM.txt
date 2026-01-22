@@ -1,3 +1,4 @@
+DOM:
 Document
 \-- html (lang="en")
     |-- head
@@ -43,3 +44,12 @@ Document
         \-- footer
             \-- p
                 \-- a (href="mailto:happypaws@example.com")
+
+Git URL:
+https://github.com/Microgoober/CS483-TopicsInCS.git
+
+Accessibility:
+Most of the consideration that was thought of was things we discussed in class. To begin with the accessibility, I added labels to all of my elements, so that way screen readers could access and read them. I also included metadata like the viewports, and the language definition.
+  
+SEO:
+For the video I did add alt text so that they have a rough idea of what's there. For the SEO standards I structure the HTML files as is standard, including title declarations for search engines. I also used the header levels as standard, though I'm not sure more than one paragraph was needed.
