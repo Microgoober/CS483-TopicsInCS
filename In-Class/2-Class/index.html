@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Sitting Service</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                Pet Sitting
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Priceing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="px-4 pt-5 my-5 text-center border-bottom"> 
+        <h1 class="display-4 fw-bold text-body-emphasis">Welcome to Our Pet Sitting Service</h1> 
+        <div class="col-lg-6 mx-auto"> 
+            <p class="lead mb-4">We provide loving care for your furry friends while you're away!</p> 
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> 
+                <button type="button" class="btn btn-primary btn-lg px-4 me-sm-3">Explore Our Services</button> 
+                <button type="button" class="btn btn-outline-secondary btn-lg px-4">Meet The Team</button> 
+            </div> 
+        </div> 
+        <div class="overflow-hidden" style="max-height: 30vh;"> 
+            <div class="container px-5"> 
+            <img src="dog-using-laptop.jpeg" alt="Brown dog using a laptop on a gray couch" class="img-fluid border rounded-3 shadow-lg mb-4" width="400" height="600" loading="lazy"> 
+        </div> 
+    </div> 
+
+    <!-- Services Section -->
+    <section id="services" class="py-5">
+        <div class="container">
+            <h2 class="text-left mb-5">Our Services</h2>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-dog fs-1 text-primary mb-3"></i>
+                        <h4 class="card-title">Dog Sitting</h4>
+                        <p class="card-text">We offer pet sitting for dogs, ensuring they are fed, walked, and loved while you're away.</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-cat fs-1 text-primary mb-3"></i>
+                        <h4 class="card-title">Cat Sitting</h4>
+                        <p class="card-text">Our cat sitting services include feeding, litter box cleaning, and lots of cuddles!</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+ 
+                    <div class="card-body text-center">
+                        <i class="bi bi-bicycle fs-1 text-primary mb-3"></i>
+                        <h4 class="card-title">Pet Walking</h4>
+                        <p class="card-text">We offer daily walks for your pets to keep them active and happy while you're busy.</p>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <div class="card-body text-center">
+                        <i class="bi bi-house-door fs-1 text-primary mb-3"></i>
+                        <h4 class="card-title">Pet Boarding</h4>
+                        <p class="card-text">We offer overnight pet boarding for your pets while you're away.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carousel Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <div id="petCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner rounded shadow">
+                    <div class="carousel-item active">
+                        <img src="pet-sitting1.jpeg" class="d-block w-100" alt="A white dog standing inside looking at the camera">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pet-sitting2.jpeg" class="d-block w-100" alt="3 baby cats siting in a blanket">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="pet-sitting3.jpeg" class="d-block w-100" alt="A woman and a dog stitting on a brown couch together looking at a laptop">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#petCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#petCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
