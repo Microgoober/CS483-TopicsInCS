@@ -1,0 +1,60 @@
+body {                                /* Global Styles */
+    font-family: Arial, sans-serif;   
+    background-color: lightgrey;    /* Set background color of the page */
+    color: #333;                    /* Set text color */
+    text-align: center;               /* Align text to the center */
+    margin: 0;                        /* Remove default margin */
+    padding: 0;                       /* Remove default padding */
+}
+
+header {
+    background-color: maroon;       /* Set background color of header */
+    padding: 20px;                    /* Add padding inside header */
+    color: white;                   /* Set text color to white */
+}
+
+main {
+    padding: 30px;                    /* Add padding to main section */
+}
+
+.todo-app {
+    background-color: white;        /* Set background color for the app container */
+    border-radius: 8px;               /* Round corners of the container */
+    width: 400px;                     /* Set fixed width for the container */
+    margin: 0 auto;                   /* Center the container horizontally */
+    padding: 20px;                    /* Add padding inside the container */
+    box-shadow: 2px 4px 6px gray;   /* Add shadow for depth */
+}
+
+input {
+    width: 90%;                     /* Set input field width to 90% of the container */
+    padding: 10px;                  /* Add padding inside the input field */
+    font-size: 16px;                /* Set font size for input text */
+    border: 1px solid #ddd;       /* Light gray border around the input */
+    border-radius: 4px;             /* Round the corners of the input field */
+}
+
+button {
+    background-color: darkred;    /* Set background color of the button */
+    color: white;                 /* Set button text color to white */
+    padding: 10px 20px;             /* Add padding inside the button */
+    border: none;                   /* Remove the default border */
+    border-radius: 4px;             /* Round corners of the button */
+    cursor: pointer;                /* Change cursor to pointer to indicate interactivity */
+    margin-top: 10px;               /* Add space between input field and button */
+}
+
+button:hover {
+    background-color: blue;       /* Change button background on hover */
+}
+
+ul {
+    list-style-type: none;          /* Remove bullet points from list */
+    padding: 0;                     /* Remove padding from the list */
+}
+
+li {
+    padding: 10px;                    /* Add padding to each list item */
+    border-bottom: 1px solid #ddd;  /* Add a line between list items */
+    font-size: 18px;                  /* Set font size for list items */
+}
