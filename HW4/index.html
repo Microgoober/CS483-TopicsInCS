@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roll the Dice</title>
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="background-image"></div> <!-- Background handled by CSS -->
+    
+    <main class="content">
+        <header>
+            <h1>Virtual Dice Roller</h1>
+            <h2>Your Luck Awaits!</h2>
+        </header>
+        
+        <section>
+            <button>Roll the Dice</button>
+            <figure>
+                <img src="./assets/dice1.png" alt="Outcome of the dice roll" class="outcome" height="100">
+                <figcaption>Dice Result</figcaption>
+            </figure>
+        </section>
+        
+        <footer>
+            <p>Last rolled: <span id="timestamp">N/A</span></p>
+        </footer>
+    </main>
+    
+    <script src="scripts/script.js"></script>
+</body>
+</html>
