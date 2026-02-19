@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 
-/* Background image styling */
+/* Background image */
 .background-image {
     background-image: url("../assets/dice_bg.jpeg");
     background-size: cover;
@@ -33,7 +33,7 @@ body {
     width: 100%;
 }
 
-/* Header styling */
+/* Header*/
 header h1 {
     font-size: 2rem;
     margin-bottom: 10px;
@@ -45,7 +45,7 @@ header h2 {
     font-weight: normal;
 }
 
-/* Button styling */
+/* Button */
 button {
     padding: 12px 25px;
     font-size: 1rem;
@@ -62,11 +62,11 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Dice image styling */
+/* Dice image*/
 .outcome {
-    visibility: hidden;       /* Hidden by default */
-    width: 100px;             /* Fixed width */
-    height: auto;             /* Maintain aspect ratio */
+    visibility: hidden;  
+    width: 100px;           
+    height: auto;   
     margin-top: 15px;
 }
 
@@ -76,13 +76,13 @@ figcaption {
     font-size: 0.9rem;
 }
 
-/* Footer styling */
+/* Footer */
 footer {
     margin-top: 25px;
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
 
     .content {
