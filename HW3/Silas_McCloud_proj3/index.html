@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes">
+<title>Smart Home Dashboard</title>
+
+<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+<div class="page">
+
+<header>
+  <h1>Smart Home</h1>
+  <nav>
+    <a href="#">Lights</a>
+    <a href="#">Temperature</a>
+    <a href="#">Security</a>
+    <a href="#">Energy</a>
+  </nav>
+  <div class="welcome">Welcome, Farhana</div>
+</header>
+
+<div class="layout">
+
+<aside>
+  <img src="assets/home-front-door.jpeg" alt="Home">
+  <h2>My Home</h2>
+  <p>457 Maple Street</p>
+  <ul>
+    <li><a href="#">History</a></li>
+    <li><a href="#">Gallery</a></li>
+    <li><a href="#">Rules</a></li>
+    <li><a href="#">Analytics</a></li>
+    <li><a href="#">Devices</a></li>
+    <li><a href="#">Settings</a></li>
+  </ul>
+</aside>
+
+<main>
+<div class="dashboard-wrap">
+
+  <div class="camera">
+    <img src="assets/living-room.jpeg" alt="Living room">
+    <div class="camera-overlay" id="camera-overlay">
+      <span class="live-dot"></span>
+      Currently Streaming – Living Room<br>
+      <small>Jan 24, 2025, 10:35 AM</small>
+    </div>
+  </div>
+
+  <section class="health">
+    <h3>System Health</h3>
+    <p>Status: <strong style="color: var(--accent);">All systems operational</strong></p>
+  </section>
+
+  <section class="lights">
+    <h3>Lights</h3>
+    <p>Status: ON</p>
+    <button>Toggle</button>
+  </section>
+
+  <section class="security">
+    <h3>Security</h3>
+    <p>Camera Feed: <span id="camera-status">Active</span></p>
+    <button id="security-btn">Turn Off</button>
+  </section>
+
+  <section class="energy">
+    <h3>Energy Usage</h3>
+    <p>Current Usage: 120 kWh</p>
+    <p>Monthly Estimate: 400 kWh</p>
+  </section>
+
+  <section class="temperature">
+    <h3>Temperature</h3>
+    <p>Current: <span id="temp-value">36</span>°F</p>
+    <input 
+      type="range" 
+      id="temp-slider"
+      min="0" 
+      max="100" 
+      value="36">
+  </section>
+
+</div>
+</main>
+
+</div>
+
+<footer>
+  <span class="footer-brand">Smart Home</span> Terms of Service | Privacy
+</footer>
+
+</div>
+
+<script>
+  const securityBtn = document.getElementById("security-btn");
+  const overlay = document.getElementById("camera-overlay");
+  const statusText = document.getElementById("camera-status");
+
+  let isActive = true;
+
+  securityBtn.addEventListener("click", function () {
+    if (isActive) {
+      overlay.style.display = "none";
+      statusText.textContent = "Inactive";
+      securityBtn.textContent = "Turn On";
+    } else {
+      overlay.style.display = "block";
+      statusText.textContent = "Active";
+      securityBtn.textContent = "Turn Off";
+    }
+
+    isActive = !isActive;
+  });
+</script>
+
+<script>
+  const tempSlider = document.getElementById("temp-slider");
+  const tempValue = document.getElementById("temp-value");
+
+  tempSlider.addEventListener("input", function () {
+    tempValue.textContent = tempSlider.value;
+  });
+</script>
+
+</body>
+</html>

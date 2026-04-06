@@ -1,0 +1,75 @@
+/* General reset: 
+   Remove default margin and padding from all elements and set box-sizing 
+   to border-box for consistency across browsers */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling: 
+   - Using flexbox to align content both horizontally and vertically
+   - Set background and text color
+   - Full viewport height (100vh) ensures the content is vertically centered */
+body {
+    font-family: Arial, sans-serif;  
+    background-color: #f5f5f5;      
+    color: #333;                   
+    display: flex;                   /* Using flexbox for easy alignment */
+    flex-direction: column;          /* Stack child elements vertically */
+    justify-content: center;         /* Vertically center the content */
+    align-items: center;             /* Horizontally center the content */
+    height: 100vh;                   /* Full height of the viewport */
+    margin: 0;                       /* Remove default body margin */
+}
+
+/* Main content container: Uses flexbox to align items inside the main section */
+main {
+    display: flex;                   /* Using flexbox for layout */
+    flex-direction: column;          /* Arrange children in a column */
+    justify-content: center;         /* Center content vertically */
+    align-items: center;             /* Center content horizontally */
+}
+
+/* Header styling: Center-align text and add some margin at the bottom */
+header {
+    text-align: center;              /* Center-align the header content */
+    margin-bottom: 20px;             /* Add space below the header */
+}
+
+/* Main heading styling: Set font size and color for the header */
+h1 {
+    font-size: 2.5rem;               /* Large font size for prominence */
+    color: #2c3e50;                 
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;              /* Increase button size for better clickability */
+    font-size: 1.1rem;               /* Slightly larger font for readability */
+    background-color: rgb(89, 103, 117);       
+    color: white;                  
+    border: none;                    /* Remove default button border */
+    border-radius: 5px;              /* Round the corners for a softer look */
+    cursor: pointer;                 /* Change cursor to pointer to indicate it's clickable */
+    margin-top: 20px;                /* Add space above the button */
+}
+
+/* Button hover effect: Change background color on hover for interactivity */
+button:hover {
+    background-color: rgb(38, 36, 84);       /* Change background on hover to give feedback */
+}
+
+/* Fact container styling:
+   - Rounded corners and box shadow for a modern, card-like appearance
+   - Set width and max-width to ensure the container is responsive */
+#fact-container {
+    background-color: rgb(192, 208, 213);      
+    padding: 20px;                    /* Padding around the text for better spacing */
+    border-radius: 10px;              /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);      /* Shadow for depth */
+    width: 80%;                       /* Take up 80% of the available width */
+    max-width: 600px;                 /* Limit the width to 600px for larger screens */
+    text-align: center;               /* Center-align the text inside the container */
+    line-height: 1.5;                 /* Increase spacing between lines */
+}

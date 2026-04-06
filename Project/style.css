@@ -1,0 +1,155 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0c2740;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #0f3c63;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.search-area {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+#searchBox {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: none;
+    border-radius: 5px;
+}
+
+#timestamp {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Widget section */
+.weather-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.widget {
+    background: #1b4c7a;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.weather-section .widget:nth-child(n+4) {
+    grid-row: 2; 
+}
+
+.forecast-section {
+    margin-top: 20px;
+}
+
+/* Forecast container */
+.forecast-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+.forecast-card {
+    background: #1b4c7a;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    display: none; /* Hidden initially for animation */
+}
+
+.hourly-container {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.hour-card {
+    background: #1b4c7a;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 80px;
+}
+
+.hour-card img {
+    width: 40px;
+}
+
+/* MOBILE VIEW - Single column for everything */
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .search-area {
+        width: 100%;
+        align-items: flex-start;
+    }
+    
+    #searchBox {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    /*1 column for widgets */
+    .weather-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .weather-section .widget:nth-child(n+4) {
+        grid-row: auto;
+    }
+    
+    /*1 column for forecast */
+    .forecast-container {
+        grid-template-columns: 1fr;
+        width: 100%;
+        box-sizing: border-box; 
+    }
+    
+    .forecast-card {
+        width: 100%;
+        box-sizing: border-box; 
+        max-width: 100%; 
+    }
+
+    .main-grid {
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: hidden; 
+    }
+
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+}
