@@ -4,7 +4,6 @@ import { MongoClient } from "mongodb";
 // Define the connection URI string
 // Replace <username> and <password> with your MongoDB Atlas credentials
 // Copy and paste your own string from MongoDB Atlas and not the string below
-const uri = "mongodb+srv://silasmccloud_db_user:Qs5HBiVGYa5zbNXW@cs483-thoughtstream-dev.yjjr8kj.mongodb.net/?appName=cs483-thoughtstream-dev";
 
 // Create a new MongoClient instance using the connection URI
 const client = new MongoClient(uri);
