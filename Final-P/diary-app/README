@@ -1,0 +1,79 @@
+### README ###
+Name: Silas McCloud
+Email: silas.mccloud@wsu.edu
+Git Repo: https://github.com/Microgoober/CS483-TopicsInCS
+
+## Project Overview ##
+	Thought stream is going to be a digital diary. 
+    Part one is mostly just focusing on the back end API calls and developments. 
+    We are creating read create update and delete operations for managing the diary entries. 
+    Including some searching and filtering capabilities and weather data integration with open Weather API.
+
+## Setup Instructions ##
+    Update Your .env File With Propper Vars
+    Run The Following:
+```bash
+    cd diary-app
+    npm install
+```
+    Then Run One Of These
+```bash
+    npm start
+    npm run dev
+```
+
+## Files ##
+    ReadMe.txt - This File!
+    db.js - MongoDB Connection Setup
+    diaryController.js - Handles Read, Create, Update, And Delete Logic For Diary Entries
+    weatherController.js - Fetches Weather Data From OpenWeather API
+    DiaryEntry.js - Schema For Diary Entries
+    diaryRoutes.js - Defines API Endpoints
+    .env.example - Environment variables 
+    .gitignore - Specifies Files To Ignore
+    package.json - Project Metadata And Dependencies
+    server.js - Main Entry Point For The Express Server
+    Screenshots/.. - All Example API Calls
+
+## Environment Variables ##
+	MONGO_URI= Your MongoDB connection string (local or Atlas)
+    PORT= Port Number (default 5000)
+    OPENWEATHER_API_KEY= Your_openweather_api_key    
+
+## Common Issues & Debugging Tips ##
+	A Issues I Keeped Encountering Was Port Issues So I Added A Print 
+    You Should See When Starting To Run:
+    ```
+    Server running on port "Port"
+    MongoDB Connected: "Num"
+    ```
+
+## API Usage Guide ##
+    Base URL: "http://localhost:<Port#>"
+    GET : Can Be Searched By Location, Tag, Or Keyword
+    
+## Endpoints ##
+Method : Endpoint         : Description                       ;
+-------:------------------:-----------------------------------;
+GET    : /api/diary       : Fetch All Diary Entries           ;
+GET    : /api/diary/:id   : Fetch A Single Diary Entry By ID  ;
+POST   : /api/diary       : Create A New Diary Entry          ;
+PUT    : /api/diary/:id   : Update An Existing Diary Entry    ;
+DELETE : /api/diary/:id   : Delete A Diary Entry              ;
+
+## API Testing Results ##
+	Save In Folder With Screenshots
+
+## Extra Credit ##
+    Added Proper Schema Structure With All Required Fields.
+    (title, content, reflection, location, tags, weather).
+    I Also Added Auto Timestamps, And Custom Error Messages.
+    As Well As Makeing Some Fealds Optinal.
+
+## Git Commit History ##
+	I Had Some Problems With My Git Repo And The Code Secrets,
+    So I Added The Original Commit History Logs.
+    I Then Made A New Branch And Added The Files Again.
+
+
+    
