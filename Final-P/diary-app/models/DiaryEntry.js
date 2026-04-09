@@ -5,7 +5,7 @@ const diarySchema = new mongoose.Schema(
     user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
-      required: false, // Changed to false for Part 1
+      required: true, // Changed to true for Part 2 - each entry must belong to a user
     },
     title: {
       type: String,
