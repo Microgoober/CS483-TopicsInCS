@@ -143,3 +143,10 @@ Test Logout
 
 ## Known Issues or Future Improvements ##
 Added Path in the cookies as It helps
+
+If OpenWeather API key is missing or invalid, 
+    weather data returns null instead of failing gracefully;
+
+Issue: "secure: false" in session config (required for localhost HTTP)
+    Means Cookies transmitted over unencrypted HTTP (development only)
+    Set secure: true when using HTTPS
