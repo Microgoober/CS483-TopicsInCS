@@ -4,7 +4,30 @@ Email: silas.mccloud@wsu.edu
 Date: 4/10/2026
 Git Repo: https://github.com/Microgoober/CS483-TopicsInCS
 
+## Overview ##
+The goal of Part 2 was to enhance the backend by implementing secure user authentication and authorization using Google OAuth 2.0,
+    Each diary entry must now be associated with an authenticated user, 
+    only logged-in users can view, create, update, or delete their own entries.
+
+This is a Session-based authentication,
+    Easier testing with Postman, Session cookies are automatically managed by browsers,
+    Once the React frontend is built in Part 3, authentication will switch to JWT.
+
+Core authentication middleware framework was passport
+    express-session does Server-side session management
+    cors does Cross-origin resource sharing
+
 ## Google Cloud Console Workflow ##
+OAuth 2.0 is an authorization framework that allows applications to obtain limited access to user accounts on an HTTP service.
+    It works by delegating user authentication to the service that hosts the user account
+    and authorizing third-party applications to access the user account.
+
+Create a Google Cloud Project
+    Configure OAuth Consent Screen, Go to APIs & Services 
+    Fill in required fields, name, email
+    Generate OAuth 2.0 Credentials
+    Put Authorized redirect URIs :http://localhost:5000/auth/google/callback
+    Add Credentials to .env File
 
 ## Authentication Flow Description ##
 
