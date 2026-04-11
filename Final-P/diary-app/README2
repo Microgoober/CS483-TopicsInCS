@@ -61,8 +61,85 @@ Just check if User is logged in, proceed to route handler
     Route Level: ensureAuthenticated blocks unauthenticated requests
     Query Level: find  filters entries by owner
     Controller Level: Explicit ownership comparison for single-entry operations
+
 ## Logout Route ##
+req.logout() - Passport method that:
+    Removes the req.user property
+    Terminates the login session
+req.session.destroy() - Express-session method that:
+    Deletes the session data from the server
+    Prevents the session ID from being reused
+res.clearCookie("connect.sid") - Removes the cookie from the client browser
+Response - Returns success message to client
+
+Before Logout:
+    GET /auth/current-user
+    GET /api/diary
+After Logout:
+    GET /auth/current-user 
+    GET /api/diary
 
 ## Testing Strategies ##
+http://localhost:5000/auth/google
+
+npm run dev
+Open Chrome and navigate to: http://localhost:5000/auth/google
+    Redirect to Google login screen
+    Select your Google account
+    Click "Continue" to grant permissions
+    Redirect back to success message
+Chrome:
+    Press F12 to open Developer Tools
+    Go to Application tab
+    Expand Cookies → http://localhost:5000
+    Find connect.sid cookie
+    Copy the entire Value
+Add Cookie to Postman:
+    Open Postman Desktop App
+    Click "Cookies" link under the Send button
+    Click "Add Domain" → Enter localhost
+    Click "Add Cookie" and fill:
+        Name: connect.sid
+        Value: [paste from browser]
+        Domain: localhost
+        Path: /
+
+Test Protected Routes
+    GET http://localhost:5000/auth/current-user
+        Expected Response (200 OK)
+    GET http://localhost:5000/api/diary
+        Expected Response (200 OK):
+    
+    POST http://localhost:5000/api/diary
+    Content-Type: application/json
+        {
+        "title": "Postman Test Entry",
+        "content": "Testing with session cookie authentication",
+        "location": "San Francisco",
+        "reflection": "Authentication works perfectly!",
+        "tags": ["test", "postman"]
+        }
+
+        Expected Response (201 Created)
+
+Test Without Cookie (Unauthorized)
+    GET http://localhost:5000/api/diary
+        Expected Response (401 Unauthorized):
+        {
+        "message": "Unauthorized: Please log in first"
+        }
+
+Test Logout
+    GET http://localhost:5000/auth/current-user
+        authenticated: true
+    GET http://localhost:5000/auth/logout
+        Expected Response (200 OK):
+            {
+            "message": "Logout successful"
+            }
+    GET http://localhost:5000/auth/current-user
+        authenticated: false
+
 
 ## Known Issues or Future Improvements ##
+Added Path in the cookies as It helps
