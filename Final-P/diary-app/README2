@@ -30,9 +30,20 @@ Create a Google Cloud Project
     Add Credentials to .env File
 
 ## Authentication Flow Description ##
+After successful Google authentication, server creates session with user ID 
+    Session ID is stored in connect.sid
+    Browser automatically sends cookie
+    Server verifies HMAC and looks up session data
+    session destroyed on logout
 
 ## Environment Variables ##
-
+    MONGO_URI= // MONGO
+    PORT= // Server
+    OPENWEATHER_API_KEY= // OpenWeather API
+    GOOGLE_CLIENT_ID= // Google OAuth
+    GOOGLE_CLIENT_SECRET= // Google OAuth
+    GOOGLE_CALLBACK_URL= // Google OAuth
+    SESSION_SECRET= // Session Secret
 ## Mongoose Models and Schema Changes ##
 
 ## Route Protection ##
