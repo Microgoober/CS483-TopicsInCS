@@ -44,10 +44,23 @@ After successful Google authentication, server creates session with user ID
     GOOGLE_CLIENT_SECRET= // Google OAuth
     GOOGLE_CALLBACK_URL= // Google OAuth
     SESSION_SECRET= // Session Secret
+
 ## Mongoose Models and Schema Changes ##
+Added To Models; Google's unique user ID
+    User's full name
+    Primary email address
+    Profile picture URL
+    For Schema each entry belongs to a user
+Its a One-to-Many Relationship: One User can have many DiaryEntries
 
 ## Route Protection ##
-
+Just check if User is logged in, proceed to route handler
+    Returns 401 Unauthorized if not authenticated
+    All diary routes require authentication
+    In addition to authentication, each controller function enforces ownership:
+    Route Level: ensureAuthenticated blocks unauthenticated requests
+    Query Level: find  filters entries by owner
+    Controller Level: Explicit ownership comparison for single-entry operations
 ## Logout Route ##
 
 ## Testing Strategies ##
