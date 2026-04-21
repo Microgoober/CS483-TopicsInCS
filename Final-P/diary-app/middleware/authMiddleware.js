@@ -1,32 +1,38 @@
 // File: middleware/authMiddleware.js
+import jwt from "jsonwebtoken";
 
 /**
- * Middleware to check if a user is authenticated.
- * Uses Passport's req.isAuthenticated() method which checks:
- * - Whether the user has an active session
- * - Whether req.user has been set by Passport
+ * Middleware to verify JWT token from Authorization header
+ * Expected header format: "Bearer <token>"
+ * On success, attaches req.user = { userId, name, email }
  */
-export const ensureAuthenticated = (req, res, next) => {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.status(401).json({ message: "Unauthorized: Please log in first" });
-};
+export const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
 
-/**
- * Middleware to check ownership of a diary entry.
- * This should be used after ensureAuthenticated.
- * @param {Object} entry - The diary entry to check ownership for
- * @param {Object} req - Express request object
- * @param {Object} res - Express response object
- */
-export const checkOwnership = (entry, req, res) => {
-  if (!entry) {
-    return false;
+  if (!authHeader || !authHeader.startsWith("Bearer ")) {
+    return res.status(401).json({ message: "Authorization token missing or malformed" });
   }
-  // Compare the user ID from the entry with the logged-in user's ID
-  if (entry.user.toString() !== req.user._id.toString()) {
-    return false;
+
+  const token = authHeader.split(" ")[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    
+    // Attach user info to request object
+    req.user = {
+      userId: decoded.userId,
+      name: decoded.name,
+      email: decoded.email,
+    };
+    
+    next();
+  } catch (err) {
+    console.error("JWT verification failed:", err.message);
+    
+    if (err.name === "TokenExpiredError") {
+      return res.status(401).json({ message: "Token expired. Please login again." });
+    }
+    
+    return res.status(403).json({ message: "Invalid or expired token" });
   }
-  return true;
 };
