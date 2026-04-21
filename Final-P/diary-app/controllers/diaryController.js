@@ -1,17 +1,19 @@
+// File: controllers/diaryController.js
 import DiaryEntry from "../models/DiaryEntry.js";
 import { fetchWeather } from "./weatherController.js";
 
 /**
  * @route GET /api/diary
  * @desc Fetch all diary entries for the authenticated user
- * @access Private (requires authentication)
+ * @access Private (requires JWT)
  */
 export const getAllEntries = async (req, res) => {
   try {
     const { search, tag, location } = req.query;
-    let filter = { user: req.user._id }; // Only fetch entries belonging to the logged-in user
+    
+    // Use req.user.userId from JWT (not req.user._id from session)
+    let filter = { user: req.user.userId };
 
-    // Search filter (Matches title or content)
     if (search) {
       filter.$or = [
         { title: { $regex: search, $options: "i" } },
@@ -19,12 +21,10 @@ export const getAllEntries = async (req, res) => {
       ];
     }
 
-    // Tag filter (Exact match)
     if (tag) {
       filter.tags = tag;
     }
 
-    // Location filter (Case-insensitive partial match)
     if (location) {
       filter.location = { $regex: location, $options: "i" };
     }
@@ -39,8 +39,7 @@ export const getAllEntries = async (req, res) => {
 
 /**
  * @route GET /api/diary/:id
- * @desc Fetch a specific diary entry by ID (must belong to user)
- * @access Private (requires authentication)
+ * @desc Fetch a specific diary entry by ID
  */
 export const getEntryById = async (req, res) => {
   try {
@@ -50,8 +49,8 @@ export const getEntryById = async (req, res) => {
       return res.status(404).json({ message: "Diary entry not found" });
     }
 
-    // Check ownership
-    if (entry.user.toString() !== req.user._id.toString()) {
+    // Check ownership using req.user.userId
+    if (entry.user.toString() !== req.user.userId) {
       return res.status(403).json({ message: "Forbidden: You don't own this entry" });
     }
 
@@ -67,14 +66,12 @@ export const getEntryById = async (req, res) => {
 
 /**
  * @route POST /api/diary
- * @desc Create a new diary entry for the authenticated user
- * @access Private (requires authentication)
+ * @desc Create a new diary entry
  */
 export const createEntry = async (req, res) => {
   try {
     const { title, content, reflection, tags, location } = req.body;
 
-    // Validate required fields
     if (!title || !title.trim()) {
       return res.status(400).json({ message: "Title is required" });
     }
@@ -87,11 +84,10 @@ export const createEntry = async (req, res) => {
       return res.status(400).json({ message: "Location is required" });
     }
 
-    // Fetch weather data if location is provided
     const weatherData = location ? await fetchWeather(location) : null;
 
     const newEntry = new DiaryEntry({
-      user: req.user._id, // Associate entry with the logged-in user
+      user: req.user.userId, // Use userId from JWT
       title: title.trim(),
       content: content.trim(),
       reflection: reflection ? reflection.trim() : "",
@@ -110,27 +106,24 @@ export const createEntry = async (req, res) => {
 
 /**
  * @route PUT /api/diary/:id
- * @desc Update an existing diary entry (must belong to user)
- * @access Private (requires authentication)
+ * @desc Update an existing diary entry
  */
 export const updateEntry = async (req, res) => {
   try {
     const { title, content, reflection, tags, location } = req.body;
     const entryId = req.params.id;
 
-    // Find the entry first
     const existingEntry = await DiaryEntry.findById(entryId);
 
     if (!existingEntry) {
       return res.status(404).json({ message: "Diary entry not found" });
     }
 
-    // Check ownership
-    if (existingEntry.user.toString() !== req.user._id.toString()) {
+    // Check ownership using req.user.userId
+    if (existingEntry.user.toString() !== req.user.userId) {
       return res.status(403).json({ message: "Forbidden: You don't own this entry" });
     }
 
-    // Prepare update data
     const updateData = {};
 
     if (title !== undefined) updateData.title = title.trim();
@@ -161,8 +154,7 @@ export const updateEntry = async (req, res) => {
 
 /**
  * @route DELETE /api/diary/:id
- * @desc Delete a diary entry (must belong to user)
- * @access Private (requires authentication)
+ * @desc Delete a diary entry
  */
 export const deleteEntry = async (req, res) => {
   try {
@@ -172,8 +164,8 @@ export const deleteEntry = async (req, res) => {
       return res.status(404).json({ message: "Diary entry not found" });
     }
 
-    // Check ownership
-    if (entry.user.toString() !== req.user._id.toString()) {
+    // Check ownership using req.user.userId
+    if (entry.user.toString() !== req.user.userId) {
       return res.status(403).json({ message: "Forbidden: You don't own this entry" });
     }
 
