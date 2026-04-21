@@ -1,0 +1,30 @@
+.diary-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.diary-list-empty {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.empty-icon {
+  font-size: 4rem;
+}
+
+.empty-state h3 {
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.empty-state p {
+  color: #666;
+}
