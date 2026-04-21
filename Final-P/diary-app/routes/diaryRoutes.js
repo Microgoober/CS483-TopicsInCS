@@ -1,3 +1,4 @@
+// File: routes/diaryRoutes.js
 import express from "express";
 import {
   createEntry,
@@ -7,15 +8,15 @@ import {
   deleteEntry,
 } from "../controllers/diaryController.js";
 import { validateDiaryEntry, validateDiaryUpdate } from "../middleware/validation.js";
-import { ensureAuthenticated } from "../middleware/authMiddleware.js";
+import { authenticateJWT } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-// All diary routes require authentication
-router.get("/", ensureAuthenticated, getAllEntries);
-router.post("/", ensureAuthenticated, validateDiaryEntry, createEntry);
-router.get("/:id", ensureAuthenticated, getEntryById);
-router.put("/:id", ensureAuthenticated, validateDiaryUpdate, updateEntry);
-router.delete("/:id", ensureAuthenticated, deleteEntry);
+// All diary routes require JWT authentication
+router.get("/", authenticateJWT, getAllEntries);
+router.post("/", authenticateJWT, validateDiaryEntry, createEntry);
+router.get("/:id", authenticateJWT, getEntryById);
+router.put("/:id", authenticateJWT, validateDiaryUpdate, updateEntry);
+router.delete("/:id", authenticateJWT, deleteEntry);
 
 export default router;
