@@ -35,13 +35,13 @@ VITE_OPENWEATHER_API_KEY=your_openweather_api_key
 cd thoughtstream-backend
 npm install
 npm run dev
-# Runs on http://localhost:5000
-```
+# Runs #
 
 cd thoughtstream-frontend
 npm install
 npm run dev
-# Runs on http://localhost:5173
+# Runs #
+```
 
 ## Features
     Google OAuth 2.0 authentication
