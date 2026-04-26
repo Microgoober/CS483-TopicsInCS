@@ -4,8 +4,6 @@
 - Date: 4/25/2026
 - Git Repo: https://github.com/Microgoober/CS483-TopicsInCS
 
-Screenshots demonstrating major user flows (e.g., login, dashboard, new entry)
-
 ## Prerequisites
 - Node.js (v16 or higher)
 - MongoDB (local or Atlas)
