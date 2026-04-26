@@ -1,19 +1,20 @@
 .diary-card {
-  background: white;
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.2s;
-  border: 1px solid #e9ecef;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .diary-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+  transform: translateX(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .diary-card.editing {
-  border-color: #667eea;
-  background: #f8f9ff;
+  border-color: #07b45c;
+  background: rgba(7, 180, 92, 0.15);
 }
 
 .card-header {
@@ -21,12 +22,14 @@
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .card-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
   margin: 0;
 }
 
@@ -36,21 +39,24 @@
 }
 
 .edit-btn, .delete-btn {
-  background: none;
+  background: rgba(255, 255, 255, 0.1);
   border: none;
-  font-size: 1.1rem;
+  font-size: 1rem;
   cursor: pointer;
-  padding: 4px 8px;
-  border-radius: 6px;
-  transition: background 0.2s;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .edit-btn:hover {
-  background: #e9ecef;
+  background: #07b45c;
+  color: white;
 }
 
 .delete-btn:hover {
-  background: #fee2e2;
+  background: rgba(255, 107, 107, 0.3);
+  color: #ff6b6b;
 }
 
 .card-body {
@@ -58,28 +64,28 @@
 }
 
 .card-content-preview {
-  color: #4a5568;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
   margin-bottom: 16px;
 }
 
 .card-reflection {
-  background: #f7fafc;
-  padding: 12px;
-  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  border-radius: 10px;
   margin-bottom: 16px;
-  border-left: 3px solid #667eea;
+  border-left: 3px solid #07b45c;
 }
 
 .card-reflection strong {
   display: block;
   margin-bottom: 6px;
-  color: #333;
+  color: #ffffff;
   font-size: 0.85rem;
 }
 
 .card-reflection p {
-  color: #4a5568;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 0.9rem;
   margin: 0;
 }
@@ -90,9 +96,9 @@
   gap: 16px;
   margin-top: 12px;
   padding-top: 12px;
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   font-size: 0.8rem;
-  color: #718096;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .meta-item {
@@ -108,11 +114,11 @@
 }
 
 .tag {
-  background: #edf2f7;
-  padding: 2px 8px;
-  border-radius: 12px;
+  background: rgba(7, 180, 92, 0.2);
+  padding: 2px 10px;
+  border-radius: 20px;
   font-size: 0.75rem;
-  color: #4a5568;
+  color: #5ec780;
 }
 
 /* Edit mode styles */
@@ -120,22 +126,46 @@
 .edit-location,
 .edit-tags {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 14px;
   margin-bottom: 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  border-radius: 10px;
   font-size: 0.95rem;
+  background: #b979e4; /* Lavender */
+  color: #1a1a2e;
+  transition: all 0.2s ease;
 }
 
 .edit-content,
 .edit-reflection {
   width: 100%;
-  padding: 10px 12px;
+  padding: 12px 14px;
   margin-bottom: 12px;
-  border: 1px solid #e2e8f0;
-  border-radius: 8px;
+  border: 2px solid transparent;
+  border-radius: 10px;
   font-family: inherit;
   resize: vertical;
+  background: #b979e4; /* Lavender */
+  color: #1a1a2e;
+  transition: all 0.2s ease;
+}
+
+.edit-title:focus,
+.edit-location:focus,
+.edit-tags:focus,
+.edit-content:focus,
+.edit-reflection:focus {
+  outline: none;
+  border-color: #07b45c;
+  background: #c98ef0;
+}
+
+.edit-title::placeholder,
+.edit-location::placeholder,
+.edit-tags::placeholder,
+.edit-content::placeholder,
+.edit-reflection::placeholder {
+  color: rgba(26, 26, 46, 0.5);
 }
 
 .edit-actions {
@@ -150,15 +180,17 @@
   border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
+  transition: all 0.2s ease;
 }
 
 .save-btn {
-  background: #667eea;
+  background: #07b45c; /* Jade */
   color: white;
 }
 
 .save-btn:hover:not(:disabled) {
-  background: #5a67d8;
+  background: #5ec780; /* Emerald */
+  transform: translateY(-1px);
 }
 
 .save-btn:disabled {
@@ -167,10 +199,10 @@
 }
 
 .cancel-btn {
-  background: #e2e8f0;
-  color: #4a5568;
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .cancel-btn:hover {
-  background: #cbd5e0;
+  background: rgba(255, 255, 255, 0.25);
 }

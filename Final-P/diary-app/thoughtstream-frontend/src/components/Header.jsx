@@ -5,7 +5,7 @@ function Header({ user, onLogout }) {
     <header className="app-header">
       <div className="header-content">
         <div className="logo">
-          <span className="logo-icon">📔</span>
+          <span className="logo-icon" role="img" aria-label="face in clouds"> {'\u{1F636}\u{200D}\u{1F32B}\u{FE0F}'} </span>
           <span className="logo-text">ThoughtStream</span>
         </div>
         

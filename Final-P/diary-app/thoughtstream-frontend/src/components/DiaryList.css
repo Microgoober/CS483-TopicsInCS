@@ -1,7 +1,7 @@
 .diary-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 
 .diary-list-empty {
@@ -18,13 +18,14 @@
 
 .empty-icon {
   font-size: 4rem;
+  opacity: 0.5;
 }
 
 .empty-state h3 {
-  color: #333;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.3rem;
 }
 
 .empty-state p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.6);
 }

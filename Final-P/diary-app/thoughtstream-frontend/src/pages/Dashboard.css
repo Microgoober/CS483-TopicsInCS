@@ -1,6 +1,6 @@
 .dashboard {
   min-height: 100vh;
-  background: #f5f7fa;
+  background: #3d325b; /* Martinique */
 }
 
 .dashboard-main {
@@ -19,10 +19,10 @@
 }
 
 .dashboard-right {
-  background: white;
+  background: #1d684a; /* Green Pea */
   border-radius: 16px;
   padding: 24px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .entries-header {
@@ -31,42 +31,52 @@
   align-items: center;
   margin-bottom: 24px;
   padding-bottom: 16px;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
 }
 
 .entries-header h2 {
-  color: #333;
+  color: #ffffff;
   font-size: 1.5rem;
+  font-weight: 500;
 }
 
 .refresh-btn {
-  background: #667eea;
+  background: #07b45c; /* Jade */
   color: white;
   border: none;
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
   cursor: pointer;
   font-size: 0.875rem;
-  transition: background 0.2s;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .refresh-btn:hover {
-  background: #5a67d8;
+  background: #5ec780; /* Emerald */
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.refresh-btn:active {
+  transform: translateY(0);
 }
 
 .loading, .error {
   text-align: center;
   padding: 48px;
-  color: #666;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .error {
-  color: #e53e3e;
+  color: #ff6b6b;
 }
 
 @media (max-width: 900px) {
   .dashboard-main {
     grid-template-columns: 1fr;
     padding: 16px;
+    gap: 20px;
   }
 }

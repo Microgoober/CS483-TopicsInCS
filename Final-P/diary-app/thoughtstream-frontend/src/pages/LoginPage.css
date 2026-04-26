@@ -3,14 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #3d325b; /* Martinique */
 }
 
 .login-container {
-  background: white;
-  border-radius: 20px;
+  background: #1d684a; /* Green Pea */
+  border-radius: 24px;
   padding: 48px 40px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
   text-align: center;
   max-width: 450px;
   width: 90%;
@@ -18,26 +18,31 @@
 
 .login-header h1 {
   font-size: 2.5rem;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .login-header p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
 }
 
 .login-description {
   margin: 24px 0;
-  color: #555;
-  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.6;
+}
+
+.login-description p {
+  margin: 4px 0;
 }
 
 .login-features {
   margin: 32px 0;
   text-align: left;
-  background: #f8f9fa;
-  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
   padding: 20px;
 }
 
@@ -47,7 +52,7 @@
   gap: 12px;
   padding: 10px 0;
   font-size: 1rem;
-  color: #333;
+  color: #ffffff;
 }
 
 .feature span:first-child {
@@ -58,4 +63,16 @@
   margin-top: 24px;
   display: flex;
   justify-content: center;
+}
+
+/* Style Google button to match theme */
+.google-login-wrapper > div {
+  border-radius: 10px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+}
+
+.google-login-wrapper > div:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+  transition: all 0.2s ease;
 }
